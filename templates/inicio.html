@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <!-- Informacion de la pagina para los navegadores -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    {% block css %} {% endblock %}
+    <title> {% block titulo %} Nomina {% endblock %}  </title>
+    <link rel="icon" type="icon/png" href="{% static 'img/informatica.png' %}">
+  </head>
+  <!-- contenido de la pagina que ven lo usuarios -->
+  <body>
+    <!--* encabezado(logo-menu-titulo) del sitio -->
+    <header class="header">
+      <nav class="navegacion">
+        <a href="{% url 'inicio' %}" class="logo">
+          <img src="{% static 'img/informatica.png' %}" width="50px" alt="logo" />
+          
+          <div class="logo">
+               Rol de Pagos
+           </div>
+        </a>
+        <ul class="menu">
+          <li><a href="{% url 'inicio' %}">Inicio</a></li>
+          <li><a href="{% url 'cargo' %}">Cargos</a></li>
+          <li><a href="{% url 'departamento' %}">Departamentos</a></li>
+          <li><a href="{% url 'empleado' %}">Empleados</a></li>
+        </ul>
+      </nav>
+    </header>  
+    <main>
+      {% block contenido %}
+      <div>
+        <section class ="principal">
+            <h1>BIENVENIDO A MI SITIO WEB</h1>
+            <img width="5000px" src="{% static 'img/fondo.png' %}" alt="Sin imagen" />
+        </section>
+      </div>
+      {% endblock %}
+      <br>
+      <br>
+      <br>
+      <br>
+      <footer>
+        <div class="footer-container">
+            <div class="footer-content-container">
+                <h1 class="website-logo">Integrantes</h1>
+                <span class="footer-info">Steven U - suruchimam@unemi.edu.ec</span>
+                <span class="footer-info">Alisson A - aastudillol2@unemi.edu.ec</span>
+                <span class="footer-info">Johanna R - jromerol2@unemi.edu.ec</span>
+            </div>
+            <div class="footer-menus">
+                <div class="footer-content-container">
+                    <span class="menu-title">Principal</span>
+                    <a href="{% url 'cargo' %}" class="menu-item-footer">Cargo</a>
+                    <a href="{% url 'departamento' %}" class="menu-item-footer">Departamento</a>
+                    <a href="{% url 'empleado' %}" class="menu-item-footer">Empleado</a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-container">
+            <span class="copyright">&copy;Copyright 2022 .</span>
+        </div>
+    </footer>
+    </main>
+  </body>
+</html>
